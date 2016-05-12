@@ -18,6 +18,6 @@ for i, string in enumerate(word_list):
 	else:
 		add_str = string[0:2]
 
-	result_list[i] = add_str
+	result_list[add_str] = i
 
 print result_list
