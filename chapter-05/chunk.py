@@ -8,17 +8,21 @@ class Chunk:
 	# 係り元文節インデックス番号のリスト
 	srcs = []
 
+	# コンストラクタ
 	def __init__(self, dst=None):
 		self.dst = dst
 		self.morphs = []
 		self.srcs = []
 
+	# 文節に形態素を追加
 	def addMorph(self, morph):
 		self.morphs.append(morph)
+
 
 	def addSrcs(self, src):
 		self.srcs.append(src)
 
+	#️ 文節のテキストを返却（記号を除く）
 	def getText(self):
 		text = ""
 		for morph in self.morphs:
@@ -26,6 +30,17 @@ class Chunk:
 				text += morph.surface
 				
 		return text
+
+	# 特定の品詞を含むか判定
+	def existsPart(self, part):
+		exist = False
+		for morph in self.morphs:
+			if morph.pos == part:
+				exist = True
+				break
+
+		return exist
+
 
 	def __str__(self):
 		# return "<morph surface='{0.surface}' base='{0.base}' pos='{0.pos}' pos1='{0.pos1}' />".format(self)
