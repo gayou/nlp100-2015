@@ -41,6 +41,14 @@ class Chunk:
 
 		return exist
 
+	# 特定の品詞の形態素を返却
+	def getPart(self, part):
+		for morph in self.morphs:
+			if morph.pos == part:
+				return morph
+
+		return None
+
 
 	def __str__(self):
 		# return "<morph surface='{0.surface}' base='{0.base}' pos='{0.pos}' pos1='{0.pos1}' />".format(self)
