@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 class Chunk:
+	# id
+	chunk_id = 0
 	# 形態素リスト
 	morphs = []
 	# 係り先文節インデックス番号
@@ -52,7 +54,7 @@ class Chunk:
 
 	def __str__(self):
 		# return "<morph surface='{0.surface}' base='{0.base}' pos='{0.pos}' pos1='{0.pos1}' />".format(self)
-		return "<chunk dst='{0}'>\n\t<morphs>{1}</morphs>\n\t<srcs>'{2}'</srcs>\n</chunk>\n".format(self.dst, self.morphs, self.srcs)
+		return "<chunk id='{0}' dst='{1}'>\n\t<morphs>{2}</morphs>\n\t<srcs>'{3}'</srcs>\n</chunk>\n".format(self.chunk_id, self.dst, self.morphs, self.srcs)
 
 	def __repr__(self):
 		return self.__str__()

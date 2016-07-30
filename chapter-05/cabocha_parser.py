@@ -25,23 +25,24 @@ class CabochaParser:
 			if line[0] == '*':
 				# print line
 				column = line.split(" ")
-				chunck_id = str(column[1])
+				chunk_id = str(column[1])
 
-				if chunck_id != '0':
+				if chunk_id != '0':
 					sentence.append(chunk)
 
 				# 係り先
 				dst = column[2].replace("D", "")
 				if dst != '-1':
 					if srcs.has_key(dst):
-						srcs[dst].append(chunck_id)
+						srcs[dst].append(chunk_id)
 					else:
-						srcs[dst] = [chunck_id]
+						srcs[dst] = [chunk_id]
 
 				# Chunkオブジェクト生成
 				chunk = Chunk()
+				chunk.chunk_id = chunk_id
 				chunk.dst = dst
-				chunk.srcs = srcs.get(chunck_id)
+				chunk.srcs = srcs.get(chunk_id)
 
 				continue
 
