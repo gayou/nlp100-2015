@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import codecs
 from random import Random
 
 # 文に関する極性分析の正解データを用い，以下の要領で正解データ（sentiment.txt）を作成せよ．
@@ -12,11 +13,11 @@ from random import Random
 sentiments = []
 
 # rt-polarity.posの各行の先頭に"+1 "という文字列を追加する
-for line in open("rt-polaritydata/rt-polarity.pos"):
+for line in codecs.open("rt-polaritydata/rt-polarity.pos"):
 	sentiments.append("+1 " + line)
 
 # rt-polarity.negの各行の先頭に"-1 "という文字列を追加する
-for line in open("rt-polaritydata/rt-polarity.neg"):
+for line in codecs.open("rt-polaritydata/rt-polarity.neg"):
 	sentiments.append("-1 " + line)
 
 
@@ -26,7 +27,7 @@ r.shuffle(sentiments)
 
 
 # sentiment.txtを作成したら
-f = open("sentiment.txt", "w")
+f = codecs.open("sentiment.txt", "w")
 for line in sentiments:
 	f.write(line)
 
