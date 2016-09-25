@@ -72,24 +72,3 @@ else:
 	print "-1",
 
 print ", p=" + str(score)
-
-
-# sentences = codecs.open('feature.txt', 'r', 'utf-8', 'ignore')
-# for line in sentences:
-# 	score = 0
-# 	features = line[:-1].split(" ")
-# 	for feature in features[1:]:
-# 		if feature in model:
-# 			score += model[feature]
-
-# 	score = sigmoid(score)
-
-# 	print " ".join(features[1:])
-# 	print "正解:", features[0],
-# 	print "予測:",
-# 	if score >= 0.5:
-# 		print "+1",
-# 	else:
-# 		print "-1",
-# 	print "　(スコア:", score, ")"
-# 	print ""
