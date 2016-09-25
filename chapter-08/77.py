@@ -10,27 +10,13 @@ from stop_word import StopWord
 
 # 76の出力を受け取り，予測の正解率，正例に関する適合率，再現率，F1スコアを求めるプログラムを作成せよ．
 
-# シグモイド関数
-def sigmoid(x):
-	return 1.0 / (1.0 + math.exp(-x))
-
-# ロジスティック回帰モデルを取得
-def getLogisticRegressionModel():
-	model = {}
-	for line in codecs.open('logistic-model.txt', 'r', 'utf-8'):
-		line = line.strip().split("\t")
-		model[line[0]] = float(line[1])
-
-	return model
-
-
 # 予測結果のファイルを読み込む
 predict_list = open('predict.txt', 'r')
 
 # 問題数
 count = 0
 positive_count = 0
-#F-mesure
+# F-mesure
 tp = 0
 fp = 0
 fn = 0
